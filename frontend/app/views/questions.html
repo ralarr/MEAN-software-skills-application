@@ -1,0 +1,74 @@
+
+<head >
+  <title>Practice Questions</title>
+  <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="/stylesheets/style.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.min.css"/>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>
+
+  <script src="app/qApp.js"></script>
+
+  <script src="app/controllers/question.js"></script>
+  <!--script src="app/controllers/solutions.js"></script-->
+
+<body ng-app='questionsApp'>
+  <style type="text/css" media="screen">
+    #editor {height:100%;}
+  </style>
+
+  <div ng-controller='questionsCtrl as question' class="container-fluid" id='question'>
+    <h4>
+      Question: {{question.activeQuestion + 1 + ". " + question.questions[question.activeQuestion].text}}
+      <button id="clear" class="btn btn-primary pull-right" ng-click="question.setActiveQuestion();" onclick="editor.selectAll(); editor.removeLines();">NEXT</button>
+    </h4>
+  </div>
+
+  <div class="col-md-8" id="editor">
+  </div>
+  <div class="col-md-4" id="result">
+    <div class="form-group">
+      <label></label>
+      <select class="form-control languageSelector" id="languageSelector" onchange="changeLanguage()" name="lang" >
+        <option value="2">C++ </option>
+        <option value="1">C </option>
+        <option value="9">C# </option>
+        <option value="3">Java</option>
+        <option value="20">Javascript </option>
+        <option value="5">Python </option>
+      </select>
+    </div>
+    <form id="compile" method="POST" action="/questions">
+      <div id="compileResponse" >
+        <textarea id="cr" name="name" class="customInput" placeholder="Practice pseudo code here"></textarea>
+      </div>
+      <div id="compileButton">
+        <button class="compileButton">COMPILE & RUN</button>
+      </div>
+      <div id="pseudoButton">
+        <button class="pseudoButton" type="submit">SUBMIT PSEUDO CODE</button>
+      </div>
+    </form>
+    <div id="run">
+      <div id="runResponse"> </div>
+      <div id="submitButton">
+        <button class="submitButton" onclick="location.href='/'">LEAVE</button>
+      </div>
+    </div>
+    <div id="submit"></div>
+  </div>
+
+  <script src="/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script>var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/terminal");
+  editor.setFontSize(20);
+  editor.getSession().setMode("ace/mode/c_cpp");</script>
+
+
+
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/javascripts/compile.js"></script>
+</body>
+</head>

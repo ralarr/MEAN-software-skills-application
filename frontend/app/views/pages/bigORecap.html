@@ -1,0 +1,69 @@
+<body>
+<div>
+  <div class="page-header">
+    <h3>Recap about Big O before taking the: <strong>BIG O QUIZ</strong></h3>
+  </div>
+  <div ng-controller="listCtrl as list" ng-hide="list.quizActive">
+    <form class="form-inline well well-sm clearfix">
+      <span class="glyphicon glyphicon-search"></span>
+      <input
+      type="text"
+      placeholder="Search"
+      class="form-control"
+      ng-model="list.search">
+      <button class="btn btn-warning pull-right" onclick="location.href='/quizes/big_O_Quiz'">
+              <strong>Start Quiz</strong>
+      </button>
+    </form>
+    <div class="row">
+      <div class="col-sm-6" ng-repeat="bigO in list.data | filter: list.search">
+        <div class="well well-sm">
+          <div class="row">
+            <div class="col-md-6">
+              <img ng-src="{{bigO.image_url}}" class="img-rounded img-responsive well-image">
+            </div>
+            <div class="col-md-6">
+              <h3><strong>{{bigO.name}}</strong></h3>
+              <p><strong>Example: </strong>{{bigO.example}}</p>
+              <button class="btn btn-primary pull-right"
+                      data-toggle="modal"
+                      data-target="#bigO-info"
+                      ng-click="list.changeActiveBigO(bigO)">Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="bigO-info">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>{{list.activeBigO.name}}</h2>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-8 col-xs-offset-2">
+                <img ng-src="{{list.activeBigO.image_url}}" class="img-rounded img-responsive">
+              </div>
+            </div>
+            <div class="row top-buffer">
+              <div class="col-xs-12">
+                <p><strong>Example: </strong>{{list.activeBigO.example}}</p>
+              </div>
+              <div class="col-xs-12 top-buffer">
+                <p>{{list.activeBigO.description}}</p>
+                <button class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+</body>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/">
+  <title>Software Skills</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style-animate.css">
+
+  <!-- Main Angular Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>
+    <script src="assets/js/angular-animate.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+    <script src="app/controllers/list.js"></script>
+    <script src="app/controllers/user.js"></script>
+    <script src="app/controllers/main.js"></script>
+    <script src="app/controllers/solutions.js"></script>
+
+    <script src="app/services/userServices.js"></script>
+    <script src="app/services/authServices.js"></script>
+
+    <style>body {background-color: #737373;}</style>
+
+</head>
+<div class="container">
+  <body ng-app="userApp" ng-controller="mainCtrl as main">
+
+    <nav class="navbar navbar-inverse bg-dark navbar-dark">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Software Skills</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/quizes">Quizes</a></li>
+          <li><a href="/questionslist">Questions</a></li>
+          <li><a href="/solutions">Solutions</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ng-show="!main.isLoggedIn" href="/register">Register</a></li>
+          <li><a ng-show="!main.isLoggedIn" href="/login">Login</a></li>
+          <li><a ng-show="main.isLoggedIn" href="#" ng-click="main.logout();">Logout</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a ng-show="main.isLoggedIn" href="/profile">Hello {{main.username}}</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div ng-view>
+
+    </div>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
