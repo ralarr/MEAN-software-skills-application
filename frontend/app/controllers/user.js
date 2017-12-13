@@ -29,4 +29,15 @@ angular.module('userCtrl', ['userServices'])
       app.errorMsg = 'Fill the form properly';
     }
   };
+})
+
+.controller('googleCtrl', function($routeParams, Auth, $location, $window){
+  var app = this;
+
+  if ($window.location.pathname == '/googleerror'){
+    app.errorMsg = 'Google account not found';
+  } else {
+    Auth.socialMedia($routeParams.token);
+    $location.path('/');
+  }
 });

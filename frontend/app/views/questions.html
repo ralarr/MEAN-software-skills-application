@@ -6,6 +6,8 @@
   <link href="/stylesheets/style.css" rel="stylesheet"/>
   <link rel="stylesheet" href="/fonts/font-awesome/css/font-awesome.min.css"/>
 
+  <link rel="icon" href="assets/unnamed2.png"/>
+
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>
 
@@ -40,17 +42,20 @@
         <option value="5">Python </option>
       </select>
     </div>
-    <form id="compile" method="POST" action="/questions">
-      <div id="compileResponse" >
-        <textarea id="cr" name="name" class="customInput" placeholder="Practice pseudo code here"></textarea>
-      </div>
+    <div id="compile">
+      <form method="POST" action="/questions">
+        <div id="compileResponse" >
+          <textarea id="cr" name="name" class="customInput" placeholder="Practice pseudo code here"></textarea>
+        </div>
+        <div id="pseudoButton">
+          <button class="pseudoButton" type="submit">SUBMIT PSEUDO CODE</button>
+        </div>
+      </form>
       <div id="compileButton">
         <button class="compileButton">COMPILE & RUN</button>
       </div>
-      <div id="pseudoButton">
-        <button class="pseudoButton" type="submit">SUBMIT PSEUDO CODE</button>
-      </div>
-    </form>
+    </div>
+
     <div id="run">
       <div id="runResponse"> </div>
       <div id="submitButton">

@@ -6,7 +6,12 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 var router = express.Router();
+const mongojs = require('mongojs');
+var db = mongojs('dbone', ['solutions']);
+const passport = require('passport');
+var social = require('./backend/passport/passport')(app, passport);
 var appRoutes = require('./backend/routes/api')(router);
+var solutions = require('./backend/routes/solutions');
 var questions = require('./backend/routes/questions');
 
 app.set('views', path.join(__dirname, 'frontend/app/views'));
@@ -21,7 +26,9 @@ app.use(express.static(__dirname + '/frontend'));
 
 
 app.use('/api', appRoutes);
+app.use('/solutions', solutions);
 app.use('/questions', questions);
+
 
 // catch 404 and forward to error handler
 /*app.use(function(req, res, next) {
@@ -58,4 +65,4 @@ app.listen(port, () => {
 	console.log("Server started on port " + port);
 });
 
-//module.exports = app;
+module.exports = app;

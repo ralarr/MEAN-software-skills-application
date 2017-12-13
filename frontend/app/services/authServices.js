@@ -19,6 +19,10 @@ angular.module('authServices', [])
     }
   };
 
+  authFactory.socialMedia = function(token){
+    AuthToken.setToken(token);
+  };
+
   authFactory.getUser = function(){
     if (AuthToken.getToken()){
       return $http.post('/api/me');

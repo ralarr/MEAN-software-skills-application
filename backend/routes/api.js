@@ -2,8 +2,6 @@ var User = require('../models/user');
 var jwt = require('jsonwebtoken');
 var secret = 'computadora';
 
-let Solution = require('../models/solution');
-
 module.exports = function(router){
 	router.post('/users', function(req, res){
 		var user = new User();
@@ -83,17 +81,6 @@ module.exports = function(router){
 
 	router.post('/me', function(req, res){
 		res.send(req.decoded);
-	});
-
-	router.get('/pseudosol', function(req, res){
-	  Solution.find({}, function(err, solutions){
-	    if (err){
-	      console.log(err);
-	    } else {
-	      console.log(solutions);
-				res.json(solutions);
-	    }
-	  });
 	});
 
 	return router;

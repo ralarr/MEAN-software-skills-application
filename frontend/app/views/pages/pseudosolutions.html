@@ -1,9 +1,17 @@
-<div class="panel panel-default" >
-<div class="panel-heading">All The Solutions</div>
-<div class="panel-body">
-    <ul class="list-group">
-        <li class="list-group-item" ng-repeat="solution in solutions">
-            {{solution.name}}
-        </li>
-    </ul>
-</div>
+<head>
+  <title>Contact List App</title>
+</head>
+<body>
+  <div class="container" ng-controller='solCtrl'>
+    <h1>Contact List App</h1>
+
+    <table id="mytable" class="table">
+      <tbody>
+        <tr ng-repeat="solution in solutions">
+          <td>{{solution.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</body>

@@ -8,7 +8,7 @@ body {
 }
 
 #question{
-  background-color:#cc99ff;
+  background-color:#CC3333;
 }
 
 #result{
@@ -33,7 +33,7 @@ border:1px solid #676861;
 }
 
 #compileButton{
-position:relative;
+position:absolute;
 bottom:0;
 height:3rem;
 width:100%;
@@ -94,7 +94,7 @@ padding:1rem;
 	color:white;
 	height:3rem;
 	font-weight: bold;
-	background-color: #9900ff;
+	background-color: #CC3333;
 }
 
 
@@ -107,7 +107,7 @@ padding:1rem;
 	color:white;
 	height:3rem;
 	font-weight: bold;
-	background-color: #6600cc;
+	background-color: #CC3333;
 }
 .questionContainer{
 	margin-top:50px;

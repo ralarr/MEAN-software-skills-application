@@ -1,3 +1,55 @@
+#footer{
+  position: fixed;
+  left: 17.5%;
+  bottom: 0;
+  width: 65%;
+  color: #FFFFFF;
+  background: #CC3333;
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#mytable{
+  color: #CC3333;
+  font-weight: bold;
+}
+
+h1 {
+  color: #CC3333;
+  font-weight: bold;
+}
+
+h2 {
+  color: #CC3333;
+  font-weight: bold;
+}
+
+h3 {
+  color: #CC3333;
+  font-weight: bold;
+}
+
+ul {
+  color: #CC3333;
+  font-weight: bold;
+}
+
+body{
+  background-color: #333333;
+  background-repeat:no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: repeat-y;
+}
+
+.navbar-custom {
+    color: #FFFFFF;
+    background-color: #CC3333;
+    font-weight: bold;
+}
+
 .well-image{
         width: 80%;
         height: 162px;

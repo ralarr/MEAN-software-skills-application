@@ -1,6 +1,6 @@
 angular.module('mainController', ['authServices'])
 
-.controller('mainCtrl', function(Auth, $timeout, $location, $rootScope){
+.controller('mainCtrl', function(Auth, $timeout, $location, $rootScope, $window){
   var app = this;
 
   $rootScope.$on('$routeChangeStart', function(){
@@ -15,6 +15,10 @@ angular.module('mainController', ['authServices'])
       app.username = '';
     }
   });
+
+  this.google = function(){
+    $window.location = $window.location.protocol + '//' + $window.location.host + '/auth/google';
+  };
 
   this.doLogin = function(loginData){
     app.loading = true;

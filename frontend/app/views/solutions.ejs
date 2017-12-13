@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="assets/unnamed2.png"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <title><%= pageTitle %></title>
+</head>
+<body background="assets/unnamed2.png">
+  <div class="container">
+    <h1><%= pageTitle %></h1>
+    <ul><% for(var i=0; i<solutions.length; i++) { %>
+          <li><%= solutions[i].name %></li>
+          <% } %></ul>
+  </div>
+
+  <div class="container">
+    <ul class="list-group">
+        <button class="btn btn-primary btn-lg pull-right" onclick="location.href='/'">Go To Home</button>
+    </ul>
+  </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

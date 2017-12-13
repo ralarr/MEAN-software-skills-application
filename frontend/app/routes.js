@@ -32,26 +32,54 @@ var app = angular.module('appRoutes', ['ngRoute'])
     templateUrl: 'app/views/pages/questionslist.html',
     member: true
   })
-  .when('/solutions', {
-    templateUrl: 'app/views/pages/solutions.html',
+  .when('/solutionslist', {
+    templateUrl: 'app/views/pages/solutionslist.html',
     member: true
   })
-  .when('/pseudosol', {
-    templateUrl: 'app/views/pages/pseudosolutions.html',
-    controller: 'solCtrl'
-  })
+  /*.when('/solutions', {
+    templateUrl: 'app/views/pages/solutions.html',
+    member: true
+  })*/
+  /*.when('/pseudosol', {
+    templateUrl: 'app/views/pages/pseudosolutions.html'
+  })*/
   .when('/about', {
-    templateUrl: 'app/views/pages/about.html',
-    member: false
+    templateUrl: 'app/views/pages/about.html'
   })
   .when('/quizes/big_O_Quiz_Recap', {
-    templateUrl: 'app/views/pages/bigORecap.html',
-    controller: 'listCtrl',
+    templateUrl: 'app/views/pages/quizes/bigORecap.html',
+    controller: 'listBOCtrl',
     member: true
   })
   .when('/quizes/big_O_Quiz', {
-    templateUrl: 'app/views/pages/bigOQuiz.html',
+    templateUrl: 'app/views/pages/quizes/bigOQuiz.html',
     member: true
+  })
+  .when('/quizes/cpp_Quiz_Recap', {
+    templateUrl: 'app/views/pages/quizes/cppRecap.html',
+    controller: 'listCppCtrl',
+    member: true
+  })
+  .when('/quizes/cpp_Quiz', {
+    templateUrl: 'app/views/pages/quizes/cppQuiz.html',
+    member: true
+  })
+  .when('/quizes/java_Quiz_Recap', {
+    templateUrl: 'app/views/pages/quizes/javaRecap.html',
+    controller: 'listJavaCtrl',
+    member: true
+  })
+  .when('/google/:token', {
+    templateUrl: 'app/views/pages/users/social/social.html',
+    controller: 'googleCtrl',
+    controllerAs: 'google',
+    member: false
+  })
+  .when('/googleerror', {
+    templateUrl: 'app/views/pages/users/login.html',
+    controller: 'googleCtrl',
+    controllerAs: 'google',
+    member: false
   })
   .otherwise({ redirectTo: '/' });
   $locationProvider.html5Mode({
